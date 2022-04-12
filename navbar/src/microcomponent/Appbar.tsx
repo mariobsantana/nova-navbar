@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import ArrowsButtons from '../microcomponent/Arrows Nav/Arrows'
 
 
 
@@ -46,7 +47,8 @@ const ResponsiveAppBar = () => {
           >
             NOVA
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
+            <ArrowsButtons/>
           </Box>
         </Toolbar>
       </Container>
