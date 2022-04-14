@@ -3,13 +3,14 @@ import { FC } from "react";
 import { styled } from "@mui/material";
 
 type size = "small" | "medium" | "large";
-type themeColors = "primary" | "secondary";
+type themeColors = "primary" | "secondary" | "default";
 
 export interface TodayButtonProps {
   onClick?: () => void;
   "data-testid"?: string;
   size?: size;
   color?: themeColors;
+  children?: React.ReactElement | string;
 }
 
 export const TodayButton: FC<TodayButtonProps> = ({
@@ -56,6 +57,10 @@ const StyledButton = styled("button")<StyledButtonProps>(
     ...(color === "secondary" && {
       color: theme.palette.secondary.main,
       border: `1px ${theme.palette.secondary.main} solid`,
+    }),
+    ...(color === "default" && {
+      color: "#fff",
+      border: `1px #fff solid`,
     }),
   })
 );
