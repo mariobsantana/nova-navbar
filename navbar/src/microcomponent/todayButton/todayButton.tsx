@@ -1,49 +1,61 @@
 import * as React from "react";
-import styled from "@emotion/styled";
 import { FC } from "react";
+import { styled } from "@mui/material";
 
 type size = "small" | "medium" | "large";
+type themeColors = "primary" | "secondary";
 
 export interface TodayButtonProps {
   onClick?: () => void;
   "data-testid"?: string;
   size?: size;
+  color?: themeColors;
 }
 
 export const TodayButton: FC<TodayButtonProps> = ({
   children,
   onClick,
   size,
+  color,
 }) => {
   const props = {
     onClick,
     "data-testid": "todayButton",
     size,
+    color: color,
   };
-  return <DayButton {...props}>{children}</DayButton>;
+  return <StyledButton {...props}>{children}</StyledButton>;
 };
 
-interface buttonProps {
+interface StyledButtonProps {
   size?: size;
+  color?: themeColors;
 }
 
-export const DayButton = styled.button<buttonProps>`
-  padding: 0.6em 2em;
-  border-radius: 18px;
-  color: #fff;
-  //font-size: 0.8em;
-  cursor: pointer;
-  margin: 1em;
-  border: 1px #fff solid;
-  background-color: transparent;
-  transition: scale 0.3s;
-  &:active {
-    transform: scale(1.02);
-  }
-  &:hover {
-    filter: brightness(1.3);
-  }
-
-  font-size: ${({ size = "medium" }) =>
-    size === "large" ? "1em" : size === "small" ? ".6em" : ".8em"};
-`;
+const StyledButton = styled("button")<StyledButtonProps>(
+  ({ size = "medium", color, theme }) => ({
+    padding: "0.6em 2em",
+    borderRadius: "18px",
+    color: "#fff",
+    cursor: "pointer",
+    margin: "1em",
+    border: "1px #fff solid",
+    backgroundColor: "transparent",
+    transition: "translateY 0.3s",
+    fontSize: size === "large" ? "1em" : size === "small" ? ".6em" : ".8em",
+    "&:focus": {
+      outline: "none",
+    },
+    "&:hover": {
+      transform: `scale(1.02)`,
+    },
+    ...(color === "primary" && {
+      color: theme.palette.primary.main,
+      border: `1px ${theme.palette.primary.main} solid`,
+    }),
+    ...(color === "secondary" && {
+      color: theme.palette.secondary.main,
+      border: `1px ${theme.palette.secondary.main} solid`,
+    }),
+  })
+);
