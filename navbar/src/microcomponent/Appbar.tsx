@@ -7,6 +7,7 @@ import Container from '@mui/material/Container';
 import BasicPopover from './displayhrs/DisplayHrs';
 import {TodayButton} from './todayButton/todayButton';
 import WeekMonthButton from './weekMonthButton/WeekMonthButton'
+import ArrowsButtons from '../microcomponent/Arrows Nav/Arrows'
 
 
 
@@ -41,6 +42,8 @@ const ResponsiveAppBar = () => {
             >
               Today
             </TodayButton>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
+            <ArrowsButtons/>
           </Box>
           <BasicPopover />
           <WeekMonthButton/>
