@@ -8,11 +8,14 @@ import BasicPopover from './displayhrs/DisplayHrs';
 import {TodayButton} from './todayButton/todayButton';
 import WeekMonthButton from './weekMonthButton/WeekMonthButton'
 import ArrowsButtons from '../microcomponent/Arrows Nav/Arrows'
+import Drawer from './Drawer'
 
-
-
+import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const ResponsiveAppBar = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <AppBar position="static">
@@ -34,19 +37,24 @@ const ResponsiveAppBar = () => {
           >
             NOVA
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
+
+          {matches ? (<Drawer/>) : ( 
+           <>
+           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
             <TodayButton
-              onClick={() => {
-                console.log("Today button was clicked!");
-              }}
-            >
-              Today
-            </TodayButton>
+            onClick={() => {
+              console.log("Today button was clicked!");
+            }}
+          >
+            Today
+          </TodayButton>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
-            <ArrowsButtons/>
-          </Box>
-          <BasicPopover />
-          <WeekMonthButton/>
+          <ArrowsButtons/>
+        </Box>
+        <BasicPopover />
+        <WeekMonthButton/>
+        </> 
+          )}
         </Toolbar>
       </Container>
     </AppBar>
