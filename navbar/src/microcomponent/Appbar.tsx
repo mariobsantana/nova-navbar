@@ -34,7 +34,7 @@ const ResponsiveAppBar = () => {
           >
             NOVA
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
             <TodayButton
               onClick={() => {
                 console.log("Today button was clicked!");
