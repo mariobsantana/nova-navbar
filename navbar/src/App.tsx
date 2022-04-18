@@ -11,9 +11,8 @@ export default function App() {
     <div>
       <Routes>
         <Route path="/" element={<Appbar/>} />
-        <Route path="routeA" element={<RouteA />}>
-        <Route path ="routeB" element={<RouteB />} />
-        </Route>
+        <Route path="routeA" element={<RouteA />} />
+        <Route path="routeB" element={<RouteB />} />
       </Routes>
     </div>
   );
