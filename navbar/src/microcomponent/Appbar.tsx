@@ -33,6 +33,13 @@ const ResponsiveAppBar = () => {
             NOVA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <TodayButton
+              onClick={() => {
+                console.log("Today button was clicked!");
+              }}
+            >
+              Today
+            </TodayButton>
           </Box>
           <BasicPopover />
         </Toolbar>
@@ -43,3 +50,4 @@ const ResponsiveAppBar = () => {
   );
 };
 export default ResponsiveAppBar;
+
