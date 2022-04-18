@@ -8,24 +8,20 @@ export default function BasicPopover() {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
   
   //Arrow Function to Test Hrs
-  // const displayHrs = (a:number, b:number, c:number) => {
-    
-  //   return a + b + c;
-  // }
-  
-  // let d = displayHrs(1,2,3);
 
   const hrsType = [
-    { id: 1, hrstag: 25, name: ' AcademyJS 25 Hrs' },
-    { id: 2, hrstag: 25, name: ' Delivery 25 Hrs' },
-    { id: 3, hrstag: 50, name: ' Talent Management 50 Hrs' },
+    { hrs: 15, name: ' AcademyJS' },
+    { hrs: 25, name: ' Delivery' },
+    { hrs: 50, name: ' Talent Management'},
   ];
   
   const result = hrsType.reduce((accumulator, obj) => {
-    return accumulator + obj.hrstag;
+    return accumulator + obj.hrs;
   }, 0);
 
-  const selectedIds = hrsType.map(({ name }) => name);
+  const selectedName = hrsType.map(({name}) => name);
+  const selectedTag = hrsType.map(({hrs}) => hrs);
+
   //
 
   
@@ -44,7 +40,7 @@ export default function BasicPopover() {
 
   return ( 
     <div>
-      <Button id='displayHrs' aria-describedby={id} variant="contained" onClick={handleClick} >
+      <Button className='displayHrs' aria-describedby={id} variant="contained" onClick={handleClick} >
        {result}
       </Button>
       <Popover
@@ -58,7 +54,11 @@ export default function BasicPopover() {
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>{selectedIds}</Typography>
+        <Typography sx={{ p: 2 }}>
+        {selectedTag[0]} {'Hrs'} {selectedName[0]} <br/>
+        {selectedTag[1]} {'Hrs'} {selectedName[1]} <br/>
+        {selectedTag[2]} {'Hrs'} {selectedName[2]} <br/>
+        </Typography>
       </Popover>
     </div>
   );
