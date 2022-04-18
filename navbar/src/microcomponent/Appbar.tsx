@@ -4,27 +4,14 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import BasicPopover from './displayhrs/DisplayHrs';
+import {TodayButton} from './todayButton/todayButton';
 import WeekMonthButton from './weekMonthButton/WeekMonthButton'
 
 
+
+
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
     <AppBar position="static">
@@ -47,7 +34,15 @@ const ResponsiveAppBar = () => {
             NOVA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <TodayButton
+              onClick={() => {
+                console.log("Today button was clicked!");
+              }}
+            >
+              Today
+            </TodayButton>
           </Box>
+          <BasicPopover />
           <WeekMonthButton/>
         </Toolbar>
       </Container>
