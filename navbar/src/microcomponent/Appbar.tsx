@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import BasicPopover from './displayhrs/DisplayHrs';
 import {TodayButton} from './todayButton/todayButton';
-
+import WeekMonthButton from './weekMonthButton/WeekMonthButton'
 
 
 
@@ -43,12 +43,10 @@ const ResponsiveAppBar = () => {
             </TodayButton>
           </Box>
           <BasicPopover />
+          <WeekMonthButton/>
         </Toolbar>
-        
       </Container>
-      
     </AppBar>
   );
 };
 export default ResponsiveAppBar;
-
