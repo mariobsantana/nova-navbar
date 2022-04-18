@@ -2,30 +2,33 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import './WeekMonthButton.css';
 
-export default function ToggleButtonNotEmpty() {
-  const [alignment, setAlignment] = React.useState('week');
+export default function WeekMonthButton() {
+  const [value, setValue] = React.useState('week');
 
-  const handleAlignment = (
+  const handleValue = (
     event: React.MouseEvent<HTMLElement>,
-    newAlignment: string | null,
+    newValue: string | null,
   ) => {
-    if (newAlignment === 'week') {
-      setAlignment(newAlignment);
-    } else if(newAlignment === 'month') {
-      setAlignment(newAlignment);
+    if (newValue === 'week') {
+      setValue(newValue);
+      console.log("Change to week mode");
+    } else if(newValue === 'month') {
+      setValue(newValue);
+      console.log("Change to month mode");
     }
   };
 
   return (
-    <Stack direction="row" spacing={4}>
+    <Stack direction="row">
       <ToggleButtonGroup
-        value={alignment}
+        value={value}
         exclusive
-        onChange={handleAlignment}
+        onChange={handleValue}
         size="small"
       >
-        <ToggleButton value="month">
+        <ToggleButton id="MonthButton" value="month">
           Month
         </ToggleButton>
         <ToggleButton value="week">
