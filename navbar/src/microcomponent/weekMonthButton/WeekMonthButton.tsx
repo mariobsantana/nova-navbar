@@ -1,10 +1,28 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Typography from '@mui/material/Typography';
 import './WeekMonthButton.css';
 
-export default function WeekMonthButton() {
+const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
+  '& .MuiToggleButtonGroup-grouped': {
+    margin: theme.spacing(0.1),
+    border: 0,
+    '&.Mui-disabled': {
+      border: 0,
+    },
+    '&:not(:first-of-type)': {
+      borderRadius: theme.shape.borderRadius,
+    },
+    '&:first-of-type': {
+      borderRadius: theme.shape.borderRadius,
+    },
+  },
+}));
+
+export default function CustomizedDividers() {
   const [value, setValue] = React.useState('week');
 
   const handleValue = (
@@ -21,20 +39,31 @@ export default function WeekMonthButton() {
   };
 
   return (
-    <Stack direction="row">
-      <ToggleButtonGroup
-        value={value}
-        exclusive
-        onChange={handleValue}
-        size="small"
+    <div>
+      <Paper
+        elevation={0}
+        sx={{
+          display: 'flex',
+          border: (theme) => `1px solid ${theme.palette.divider}`,
+          flexWrap: 'wrap',
+        }}
+        
       >
-        <ToggleButton id="MonthButton" value="month">
-          Month
-        </ToggleButton>
-        <ToggleButton value="week">
-          Week
-        </ToggleButton>
-      </ToggleButtonGroup>
-    </Stack>
+        <StyledToggleButtonGroup
+          size="small"
+          value={value}
+          exclusive
+          onChange={handleValue}
+          className="wmbutton2"
+        >
+          <ToggleButton value="week">
+            <Typography className="wmbutton" variant='button'> Week</Typography>
+          </ToggleButton>
+          <ToggleButton value="month">
+            <Typography className="wmbutton" variant='button'> Month</Typography>
+          </ToggleButton>
+        </StyledToggleButtonGroup>
+      </Paper>
+    </div>
   );
 }
