@@ -16,6 +16,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, FormControlLabel, Switch } from "@mui/material";
 import ArrowsButtons from "./Arrows Nav/Arrows";
+import BasicPopover from "./displayhrs/DisplayHrs";
 
 export default function MainDrawer() {
   const [rightOpen, setRightOpen] = React.useState(false);
@@ -51,15 +52,17 @@ export default function MainDrawer() {
           <ListItemIcon>
             <TodayIcon color="primary" />
           </ListItemIcon>
-          <ListItemText primary="Today" />
+          <ListItemText onClick={() => {
+                  console.log("Today button was clicked!");
+                }} primary="Today" />
         </ListItem>
-        <ListItem button>
+        <ListItem >
           <ListItemIcon>
             <AccessTimeIcon color="primary" />
           </ListItemIcon>
-          <ListItemText primary="48 Hrs" />
+          <ListItemText primary={<BasicPopover /> } />
         </ListItem>
-        <ListItem button>
+        <ListItem >
           <ListItemIcon>
             <CalendarMonthIcon color="primary" />
           </ListItemIcon>
