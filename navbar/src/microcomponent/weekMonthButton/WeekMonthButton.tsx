@@ -57,10 +57,10 @@ export default function CustomizedDividers() {
           className="wmbutton2"
         >
           <ToggleButton value="week">
-            <Typography className="wmbutton" variant='button'> Week</Typography>
+            <Typography className="wmbutton" variant='caption'> Week</Typography>
           </ToggleButton>
           <ToggleButton value="month">
-            <Typography className="wmbutton" variant='button'> Month</Typography>
+            <Typography className="wmbutton" variant='caption'> Month</Typography>
           </ToggleButton>
         </StyledToggleButtonGroup>
       </Paper>
