@@ -9,10 +9,11 @@ import { TodayButton } from "./todayButton/todayButton";
 import WeekMonthButton from "./weekMonthButton/WeekMonthButton";
 import ArrowsButtons from "../microcomponent/Arrows Nav/Arrows";
 import DisplayDate from "./displayDate/displayDate";
-
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MainDrawer from "./Drawer";
+import ImageAvatars from "../microcomponent/profile/Profile";
+
 
 const ResponsiveAppBar = () => {
   const theme = useTheme();
@@ -57,6 +58,7 @@ const ResponsiveAppBar = () => {
               <DisplayDate />
               <BasicPopover />
               <WeekMonthButton />
+              <ImageAvatars />
             </>
           )}
         </Toolbar>
