@@ -22,13 +22,10 @@ export const ArrowsButtons:FC<ArrowProps> =({onClick}) =>{
 
   return (
     <Stack spacing={2} direction="row">
-      <Link to="/routeA">
-        <IconButton aria-label="back" type="button">
+        <IconButton aria-label="back" type="button" onClick={onClick}>
         <ArrowBackIosNewIcon />
         </IconButton>
-        </Link>
-        <Link to="/routeB">
-        <IconButton aria-label="forward"type="button">
+        <IconButton aria-label="forward" type="button" onClick={onClick}>
         <ArrowForwardIosIcon />
         </IconButton>
 
