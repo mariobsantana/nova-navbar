@@ -15,7 +15,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, FormControlLabel, Switch } from "@mui/material";
-import ArrowsButtons from "./Arrows Nav/Arrows";
+import ArrowsButtons from "./ArrowsNav/Arrows";
 import BasicPopover from "./displayhrs/DisplayHrs";
 
 export default function MainDrawer() {

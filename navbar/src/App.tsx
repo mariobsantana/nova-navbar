@@ -1,6 +1,6 @@
 import './App.css';
-import RouteA from './microcomponent/Arrows Nav/Routes/RouteA';
-import RouteB from './microcomponent/Arrows Nav/Routes/RouteB'; 
+import RouteA from './microcomponent/ArrowsNav/Routes/RouteA';
+import RouteB from './microcomponent/ArrowsNav/Routes/RouteB';
 import Appbar from './microcomponent/Appbar';
 import { Routes, Route} from "react-router-dom";
 
