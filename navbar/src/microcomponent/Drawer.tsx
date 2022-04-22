@@ -15,7 +15,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, FormControlLabel, Switch } from "@mui/material";
-import ArrowsButtons from "./ArrowsNav/Arrows";
+import {ArrowsButtons} from "./ArrowsNav/Arrows";
 import BasicPopover from "./displayhrs/DisplayHrs";
 
 export default function MainDrawer() {
@@ -80,7 +80,7 @@ export default function MainDrawer() {
           />
         </ListItem>
         <ListItem color="primary" sx={{ backgroundColor: "primary.main" }}>
-          <ArrowsButtons />
+          <ArrowsButtons  onClick={()=>console.log("desde el drawer")}/>
         </ListItem>
       </List>
     </Box>

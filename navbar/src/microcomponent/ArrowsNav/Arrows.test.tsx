@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent} from "@testing-library/react";
-import ArrowsButtons  from "./Arrows";
+import {ArrowsButtons} from "./Arrows";
 
 describe("Testing arrow buttons", () => {
   const props = {

@@ -45,7 +45,7 @@ const ResponsiveAppBar = () => {
                 Today
               </TodayButton>
               <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "flex" } }}>
-                <ArrowsButtons  onClick={()=>console.log("moved")}/>
+                <ArrowsButtons  onClick={()=>console.log("moved")} size="small" color="secondary"/>
               </Box>
               <DisplayDate />
               <BasicPopover />

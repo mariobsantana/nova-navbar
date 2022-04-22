@@ -5,13 +5,12 @@ import { red } from '@mui/material/colors';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2',
+      // Purple and green play nicely together.
+      main: "#1976d2",
     },
     secondary: {
-      main: '#19857b',
-    },
-    error: {
-      main: red.A400,
+      // This is green.A700 as hex.
+      main: '#fff',
     },
   },
 });
