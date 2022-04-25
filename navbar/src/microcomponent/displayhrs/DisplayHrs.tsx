@@ -3,29 +3,20 @@ import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import './displayhrs.css'
+import {FC} from "react";
+import {Hours} from "../../data/hours";
 
-export default function BasicPopover() {
+
+export interface HoursProps{
+hours: Hours[]
+}
+
+export const BasicPopover:FC<HoursProps> = ({hours}) => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
-  
-  //Arrow Function to Test Hrs
 
-  const hrsType = [
-    { hrs: 15, name: ' AcademyJS' },
-    { hrs: 25, name: ' Delivery' },
-    { hrs: 50, name: ' Talent Management'},
-  ];
-  
-  const result = hrsType.reduce((accumulator, obj) => {
-    return accumulator + obj.hrs;
+  const totalHours = hours.reduce((accumulator, obj) => {
+return accumulator + obj.hrs;
   }, 0);
-
-  const selectedName = hrsType.map(({name}) => name);
-  const selectedTag = hrsType.map(({hrs}) => hrs);
-
-  //
-
-  
-  
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -41,7 +32,7 @@ export default function BasicPopover() {
   return ( 
     <div>
       <Button className='displayHrs' aria-describedby={id} variant="contained" onClick={handleClick} >
-       {result}
+       {totalHours}
       </Button>
       <Popover
         id={id}
@@ -54,11 +45,12 @@ export default function BasicPopover() {
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>
-        {selectedTag[0]} {'Hrs'} {selectedName[0]} <br/>
-        {selectedTag[1]} {'Hrs'} {selectedName[1]} <br/>
-        {selectedTag[2]} {'Hrs'} {selectedName[2]} <br/>
-        </Typography>
+         {hours.map((option)=>(
+  <Typography sx={{ p: 2 }}>
+         {option.name} {option.hrs} hrs
+  </Typography>
+      ))}
+        
       </Popover>
     </div>
   );

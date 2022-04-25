@@ -16,7 +16,8 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, FormControlLabel, Switch } from "@mui/material";
 import {ArrowsButtons} from "./ArrowsNav/Arrows";
-import BasicPopover from "./displayhrs/DisplayHrs";
+import {BasicPopover} from "./displayhrs/DisplayHrs";
+import {hrsT} from "../data/hours";
 
 export default function MainDrawer() {
   const [rightOpen, setRightOpen] = React.useState(false);
@@ -60,7 +61,7 @@ export default function MainDrawer() {
           <ListItemIcon>
             <AccessTimeIcon color="primary" />
           </ListItemIcon>
-          <ListItemText primary={<BasicPopover /> } />
+          <ListItemText primary={<BasicPopover hours={hrsT} /> } />
         </ListItem>
         <ListItem >
           <ListItemIcon>

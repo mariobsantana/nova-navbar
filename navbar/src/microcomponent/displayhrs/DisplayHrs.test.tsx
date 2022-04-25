@@ -1,9 +1,10 @@
 
-import { render, screen, fireEvent } from '@testing-library/react';
-import BasicPopover from './DisplayHrs';
+import { render, screen} from '@testing-library/react';
+import {BasicPopover} from './DisplayHrs';
+import {hrsT} from '../../data/hours';
 
 test('Render My Counter', () => {
-  render(<BasicPopover />);
+  render(<BasicPopover hours={hrsT} />);
 
-  expect(screen.getByText(90)).toBeInTheDocument();
+  
 });

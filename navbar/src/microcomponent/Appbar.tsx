@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import BasicPopover from "./displayhrs/DisplayHrs";
+import {BasicPopover} from "./displayhrs/DisplayHrs";
 import { TodayButton } from "./todayButton/todayButton";
 import WeekMonthButton from "./weekMonthButton/WeekMonthButton";
 import DisplayDate from "./displayDate/displayDate";
@@ -13,6 +13,7 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MainDrawer from "./Drawer";
 import {ArrowsButtons} from "./ArrowsNav/Arrows";
+import {hrsT} from "../data/hours";
 
 const ResponsiveAppBar = () => {
   const theme = useTheme();
@@ -48,7 +49,7 @@ const ResponsiveAppBar = () => {
                 <ArrowsButtons  onClick={()=>console.log("moved")} size="small" color="secondary"/>
               </Box>
               <DisplayDate />
-              <BasicPopover />
+              <BasicPopover hours={hrsT}/>
               <WeekMonthButton />
               <ImageAvatars />
             </>
