@@ -18,6 +18,8 @@ import { Avatar, FormControlLabel, Switch } from "@mui/material";
 import {ArrowsButtons} from "./ArrowsNav/Arrows";
 import {BasicPopover} from "./displayhrs/DisplayHrs";
 import {hrsT} from "../data/hours";
+import {dates} from "../data/dates";
+import { DisplayDate } from "./displayDate/displayDate";
 
 export default function MainDrawer() {
   const [rightOpen, setRightOpen] = React.useState(false);
@@ -67,7 +69,7 @@ export default function MainDrawer() {
           <ListItemIcon>
             <CalendarMonthIcon color="primary" />
           </ListItemIcon>
-          <ListItemText primary="Apr 2022" />
+          <DisplayDate dates={dates} data-testid={"displayDate"} color="primary"/>
         </ListItem>
       </List>
       <Divider />

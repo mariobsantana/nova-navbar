@@ -45,8 +45,8 @@ return accumulator + obj.hrs;
           horizontal: 'left',
         }}
       >
-         {hours.map((option)=>(
-  <Typography sx={{ p: 2 }}>
+         {hours.map((option, index)=>(
+  <Typography sx={{ p: 2 }} key={index}>
          {option.name} {option.hrs} hrs
   </Typography>
       ))}
