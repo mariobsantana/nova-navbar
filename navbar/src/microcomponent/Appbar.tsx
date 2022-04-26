@@ -6,13 +6,13 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import BasicPopover from "./displayhrs/DisplayHrs";
 import { TodayButton } from "./todayButton/todayButton";
-import WeekMonthButton from "./weekMonthButton/WeekMonthButton";
 import DisplayDate from "./displayDate/displayDate";
 import ImageAvatars from "./profile/Profile";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MainDrawer from "./Drawer";
 import {ArrowsButtons} from "./ArrowsNav/Arrows";
+import { WeekMonthButtons } from "./weekMonthButton/WeekMonthButton";
 
 const ResponsiveAppBar = () => {
   const theme = useTheme();
@@ -49,7 +49,16 @@ const ResponsiveAppBar = () => {
               </Box>
               <DisplayDate />
               <BasicPopover />
-              <WeekMonthButton />
+              <WeekMonthButtons 
+              onClickM={() => {
+                console.log("Month was clicked!");
+              }}
+              onClickW={() => {
+                console.log("Week was clicked!");
+              }}
+              box="contained"
+              size="small"
+              />
               <ImageAvatars />
             </>
           )}
