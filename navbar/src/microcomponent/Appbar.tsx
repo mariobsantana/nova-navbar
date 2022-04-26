@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import {BasicPopover} from "./displayhrs/DisplayHrs";
 import { TodayButton } from "./todayButton/todayButton";
-import WeekMonthButton from "./weekMonthButton/WeekMonthButton";
 import {DisplayDate} from "./displayDate/displayDate";
 import ImageAvatars from "./profile/Profile";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
@@ -55,7 +54,16 @@ const ResponsiveAppBar: FC<AppbarProps> = ({matchesSM}) => {
               </Box>
               <DisplayDate dates={dates} data-testid={"displayDate"} />
               <BasicPopover hours={hrsT} />
-              <WeekMonthButton />
+              <WeekMonthButtons
+              onClickM={() => {
+                console.log("Month was clicked!");
+              }}
+              onClickW={() => {
+                console.log("Week was clicked!");
+              }}
+              box="contained"
+              size="small"
+              />
               <ImageAvatars />
             </>
           )}

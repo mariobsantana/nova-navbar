@@ -1,25 +1,22 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import TodayIcon from "@mui/icons-material/Today";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, FormControlLabel, Switch } from "@mui/material";
-import {ArrowsButtons} from "./ArrowsNav/Arrows";
-import {BasicPopover} from "./displayhrs/DisplayHrs";
-import {hrsT} from "../data/hours";
-import {dates} from "../data/dates";
-import { DisplayDate } from "./displayDate/displayDate";
+import {ArrowsButtons} from "../ArrowsNav/Arrows";
+import {BasicPopover} from "../displayhrs/DisplayHrs";
+import {hrsT} from "../../data/hours";
+import {dates} from "../../data/dates";
+import { DisplayDate } from "../displayDate/displayDate";
 
 export default function MainDrawer() {
   const [rightOpen, setRightOpen] = React.useState(false);

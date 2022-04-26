@@ -6,44 +6,45 @@ import './displayhrs.css'
 import {FC} from "react";
 import {Hours} from "../../data/hours";
 
-import {useTheme, styled} from "@mui/material";
-import { themeColors } from '../../types/customs';
+// import {useTheme, styled} from "@mui/material";
+// import { themeColors } from '../../types/customs';
 
 
-export interface HoursProps extends DisplayProps{
+export interface HoursProps{
 hours: Hours[]
 }
-  interface DisplayProps{
-    color?: themeColors
-  }
+  // interface DisplayProps{
+  //   color?: themeColors
+  // }
 
-export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
+export const BasicPopover:FC<HoursProps> = ({hours}) => {
 
-  const props = {
-    color,
-  };
-  const theme= useTheme()
-
-
-    const colors: { [key in themeColors]: string } = {
-        "primary": theme.palette.primary.main,
-        "secondary": theme.palette.secondary.main,
-        "default": "#fff",
-    };
+  // const props = {
+  //   color,
+  // };
+  // const theme= useTheme()
 
 
-    const StyledDiv = styled("div")<DisplayProps>`
-    height: auto;
-    background-color: #ffffff !important;
-    display: flex;
-    color: #1976d2 !important;
-    font-size: 1.5em;
-    font-weight: bolder !important;
-    margin-left: 30px !important;
-    margin-right: 30px !important;
-    border-radius: 30rem !important;
-  color: ${({ color="default" }) => colors[color as themeColors] };
-  `;
+  //   const colors: { [key in themeColors]: string } = {
+  //       "primary": theme.palette.primary.main,
+  //       "secondary": theme.palette.secondary.main,
+  //       "default": "#fff",
+  //   };
+
+
+  //   const StyledDiv = styled("div")<DisplayProps>`
+  //   font-size: 1rem;
+  //   font-weight: normal;
+  //   font-style: normal;
+  //   font-stretch: normal;
+  //   text-align: center;
+  //   line-height: normal;
+  //   letter-spacing: -0.3px;
+  //   place-self: center;
+  //   font-family: Work-Sans, sans-serif;
+  //   margin: 0px 10px 0px 10px;
+  // color: ${({ color="default" }) => colors[color as themeColors] };
+  // `;
 
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
@@ -64,8 +65,8 @@ return accumulator + obj.hrs;
   const id = open ? 'simple-popover' : undefined;
 
   return ( 
-    <StyledDiv {...props}>
-      <Button  aria-describedby={id} variant="contained" onClick={handleClick} >
+    <div>
+      <Button className='displayHrs'  aria-describedby={id} variant="contained" onClick={handleClick} >
        {totalHours}
       </Button>
       <Popover
@@ -86,6 +87,6 @@ return accumulator + obj.hrs;
       ))}
         
       </Popover>
-    </StyledDiv>
+    </div>
   );
 }
