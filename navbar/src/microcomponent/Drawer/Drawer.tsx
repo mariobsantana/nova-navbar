@@ -15,8 +15,8 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, FormControlLabel, Switch } from "@mui/material";
-import {ArrowsButtons} from "./ArrowsNav/Arrows";
-import BasicPopover from "./displayhrs/DisplayHrs";
+import {ArrowsButtons} from "../ArrowsNav/Arrows";
+import BasicPopover from "../displayhrs/DisplayHrs";
 
 export default function MainDrawer() {
   const [rightOpen, setRightOpen] = React.useState(false);
@@ -79,29 +79,26 @@ export default function MainDrawer() {
             label={checked ? "Monthly" : "Weekly"}
           />
         </ListItem>
-        <ListItem color="primary" sx={{ backgroundColor: "primary.main" }}>
-          <ArrowsButtons  onClick={()=>console.log("desde el drawer")}/>
+        <ListItem  >
+          <ArrowsButtons  onClick={()=>console.log("desde el drawer")} color="primary" size="small"/>
         </ListItem>
       </List>
     </Box>
   );
 
   return (
-    <div>
-      <React.Fragment>
+    <div data-testid="mainDrawer">
         <IconButton
-          color="inherit"
           aria-label="open drawer"
           onClick={toggleDrawer(!rightOpen)}
           edge="start"
-          sx={{ ...(rightOpen && { display: "none" }) }}
+          sx={{ ...(rightOpen && { display: "none" })}}
         >
-          <MenuIcon />
+          <MenuIcon sx={{fill: "#fff"}} />
         </IconButton>
         <Drawer anchor="right" open={rightOpen} onClose={toggleDrawer(false)}>
           {list()}
         </Drawer>
-      </React.Fragment>
     </div>
   );
 }

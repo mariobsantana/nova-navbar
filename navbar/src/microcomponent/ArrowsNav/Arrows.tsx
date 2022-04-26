@@ -16,48 +16,15 @@ export interface ButtonProps extends IconButtonProps{
 }
 
 export const ArrowsButtons:FC<ArrowProps> =({onClick, size, color}) =>{
-
-/*
-    const colors: { [key in themeColors]: string } = {
-        "primary": theme.palette.primary.main,
-        "secondary": theme.palette.secondary.main,
-        "default": "#fff",
-    };
-
-    const sizes: { [key in size]: string } = {
-        "small": ".6em",
-        "medium": ".8em",
-        "large": "1em",
-    };
-
-    const StyledButton = styled("button")<ButtonProps>`
-    font-size: ${({ size="medium" }) => sizes[size as size] };
-    padding: 0.6em 2em;
-    border-radius:  18px;
-    cursor: pointer;
-    margin: 1em;
-    border: 1px #fff solid;
-    background-color: transparent;
-    transition: transform 0.15s ease;
-  color: ${({ color="default" }) => colors[color as themeColors] };
-  border: 1px ${({ color="default" }) => colors[color as themeColors] } solid;
-  &:focus{
-    outline: none;
-  }
-  &:hover{
-    transform: scale(1.02);
-  }
-  `;
-
-*/
+    const props = {onClick, size, color}
 
 
     return (
-    <Stack spacing={2} direction="row">
-        <IconButton aria-label="back" type="button" onClick={onClick} size={size} color={color}>
+    <Stack spacing={2} direction="row" data-testid="ArrowsNav">
+        <IconButton aria-label="back" type="button" {...props} data-testid="ArrowsLeft">
         <ArrowBackIosNewIcon />
         </IconButton>
-        <IconButton aria-label="forward" type="button" onClick={onClick} size={size} color={color}>
+        <IconButton aria-label="forward" type="button" {...props} data-testid="ArrowsRight">
         <ArrowForwardIosIcon />
         </IconButton>
 

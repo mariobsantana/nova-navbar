@@ -11,12 +11,15 @@ import DisplayDate from "./displayDate/displayDate";
 import ImageAvatars from "./profile/Profile";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import MainDrawer from "./Drawer";
+import MainDrawer from "./Drawer/Drawer";
 import {ArrowsButtons} from "./ArrowsNav/Arrows";
+import {FC} from "react";
 
-const ResponsiveAppBar = () => {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+export interface AppbarProps{
+  matchesSM: boolean;
+}
+
+const ResponsiveAppBar: FC<AppbarProps> = ({matchesSM}) => {
 
   return (
     <AppBar position="static">
@@ -32,7 +35,7 @@ const ResponsiveAppBar = () => {
             NOVA
           </Typography>
 
-          {matches ? (
+          {matchesSM ? (
             <MainDrawer />
           ) : (
             <>
