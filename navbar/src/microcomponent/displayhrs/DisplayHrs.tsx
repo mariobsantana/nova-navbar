@@ -5,12 +5,13 @@ import Button from '@mui/material/Button';
 import './displayhrs.css'
 import {FC} from "react";
 import {Hours} from "../../data/hours";
+
+
 export interface HoursProps{
 hours: Hours[]
 }
 
 export const BasicPopover:FC<HoursProps> = ({hours}) => {
-
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
 
   const totalHours = hours.reduce((accumulator, obj) => {
@@ -30,7 +31,7 @@ return accumulator + obj.hrs;
 
   return ( 
     <div>
-      <Button  aria-describedby={id} variant="contained" onClick={handleClick} >
+      <Button aria-describedby={id} variant="contained" onClick={handleClick} >
        {totalHours}
       </Button>
       <Popover
