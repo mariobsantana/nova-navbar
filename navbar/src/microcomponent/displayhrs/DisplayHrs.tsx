@@ -11,7 +11,7 @@ import {Hours} from "../../data/hours";
 
 
 export interface HoursProps{
-hours: Hours[]
+hours: Hours[];
 }
   // interface DisplayProps{
   //   color?: themeColors
@@ -66,7 +66,7 @@ return accumulator + obj.hrs;
 
   return ( 
     <div>
-      <Button className='displayHrs'  aria-describedby={id} variant="contained" onClick={handleClick} >
+      <Button  className='displayHrs'  aria-describedby={id} variant="contained" onClick={handleClick} >
        {totalHours}
       </Button>
       <Popover
