@@ -16,6 +16,7 @@ import {FC} from "react";
 import {hrsT} from "../data/hours";
 import {dates} from "../data/dates";
 import { ImageAvatars } from "./profile/Profile";
+import { MainLogo } from "./logo/logo";
 export interface AppbarProps{
   matchesSM: boolean;
 }
@@ -27,14 +28,7 @@ const ResponsiveAppBar: FC<AppbarProps> = ({matchesSM}) => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
 
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: "flex", overflow: "visible" }}
-          >
-            NOVA
-          </Typography>
+          <MainLogo img="https://res.cloudinary.com/joeutd/image/upload/v1651004286/js-academy/itexico_s1mdee.png" />
 
           {matchesSM ? (
             <MainDrawer />
