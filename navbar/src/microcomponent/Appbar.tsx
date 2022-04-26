@@ -7,7 +7,6 @@ import Container from "@mui/material/Container";
 import {BasicPopover} from "./displayhrs/DisplayHrs";
 import { TodayButton } from "./todayButton/todayButton";
 import {DisplayDate} from "./displayDate/displayDate";
-import ImageAvatars from "./profile/Profile";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import MainDrawer from "./Drawer/Drawer";
@@ -16,7 +15,7 @@ import { WeekMonthButtons } from "./weekMonthButton/WeekMonthButton";
 import {FC} from "react";
 import {hrsT} from "../data/hours";
 import {dates} from "../data/dates";
-
+import { ImageAvatars } from "./profile/Profile";
 export interface AppbarProps{
   matchesSM: boolean;
 }
@@ -64,7 +63,8 @@ const ResponsiveAppBar: FC<AppbarProps> = ({matchesSM}) => {
               box="contained"
               size="small"
               />
-              <ImageAvatars />
+
+              <ImageAvatars name="DL" />
             </>
           )}
         </Toolbar>
