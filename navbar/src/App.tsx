@@ -1,18 +1,15 @@
 import './App.css';
-import RouteA from './microcomponent/Arrows Nav/Routes/RouteA';
-import RouteB from './microcomponent/Arrows Nav/Routes/RouteB'; 
 import Appbar from './microcomponent/Appbar';
-import { Routes, Route} from "react-router-dom";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import {useTheme} from "@mui/material/styles";
 
 
 export default function App() {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <div>
-      <Routes>
-        <Route path="/" element={<Appbar/>} />
-        <Route path="routeA" element={<RouteA />} />
-        <Route path="routeB" element={<RouteB />} />
-      </Routes>
+        <Appbar matchesSM={matches}/>
     </div>
   );
 }
