@@ -15,7 +15,7 @@ export interface WeekMonthButton {
 
 export const WeekMonthButtons:FC<WeekMonthButton> =({onClickW, onClickM, size, box}) =>{
       return (
-      <ButtonGroup variant={box}>
+      <ButtonGroup variant={box} data-testid="WMButton">
         <Button onClick={onClickM} size={size}>Month</Button>
         <Button onClick={onClickW} size={size}>Week</Button>
       </ButtonGroup>
