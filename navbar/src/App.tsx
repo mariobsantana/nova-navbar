@@ -1,15 +1,14 @@
-import './App.css';
-import Appbar from './microcomponent/Appbar';
+import "./App.css";
+import Appbar from "./microcomponent/Appbar";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import {useTheme} from "@mui/material/styles";
-
+import { useTheme } from "@mui/material/styles";
 
 export default function App() {
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <div>
-        <Appbar matchesSM={matches}/>
+      <Appbar matchesSM={matches} />
     </div>
   );
 }

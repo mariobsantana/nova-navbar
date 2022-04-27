@@ -1,68 +1,90 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-import {BasicPopover} from "./displayhrs/DisplayHrs";
+import { BasicPopover } from "./displayhrs/DisplayHrs";
 import { TodayButton } from "./todayButton/todayButton";
-import {DisplayDate} from "./displayDate/displayDate";
-import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import { DisplayDate } from "./displayDate/displayDate";
 import MainDrawer from "./Drawer/Drawer";
-import {ArrowsButtons} from "./ArrowsNav/Arrows";
+import { ArrowsButtons } from "./ArrowsNav/Arrows";
 import { WeekMonthButtons } from "./weekMonthButton/WeekMonthButton";
-import {FC} from "react";
-import {hrsT} from "../data/hours";
-import {dates} from "../data/dates";
+import { FC } from "react";
+import { hrsT } from "../data/hours";
+import { dates } from "../data/dates";
 import { ImageAvatars } from "./profile/Profile";
 import { MainLogo } from "./logo/logo";
-export interface AppbarProps{
+import { Grid } from "@mui/material";
+
+export interface AppbarProps {
   matchesSM: boolean;
 }
 
-const ResponsiveAppBar: FC<AppbarProps> = ({matchesSM}) => {
-
+const ResponsiveAppBar: FC<AppbarProps> = ({ matchesSM }) => {
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-
-          <MainLogo img="https://res.cloudinary.com/joeutd/image/upload/v1651004286/js-academy/itexico_s1mdee.png" />
+      <Toolbar disableGutters>
+        <Grid
+          container
+          spacing={2}
+          alignItems="center"
+          mx={2}
+          justifyContent="space-between"
+        >
+          <Grid item>
+            <MainLogo img="https://res.cloudinary.com/joeutd/image/upload/v1651004286/js-academy/itexico_s1mdee.png" />
+          </Grid>
 
           {matchesSM ? (
-            <MainDrawer />
+            <Grid item>
+              <MainDrawer />
+            </Grid>
           ) : (
             <>
-              <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }} />
-              <TodayButton
-                onClick={() => {
-                  console.log("Today button was clicked!");
-                }}
-              >
-                Today
-              </TodayButton>
-              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "flex" } }}>
-                <ArrowsButtons  onClick={()=>console.log("moved")} size="small" color="secondary"/>
-              </Box>
-              <DisplayDate dates={dates} data-testid={"displayDate"} />
-              <BasicPopover hours={hrsT} />
-              <WeekMonthButtons
-              onClickM={() => {
-                console.log("Month was clicked!");
-              }}
-              onClickW={() => {
-                console.log("Week was clicked!");
-              }}
-              box="contained"
-              size="small"
-              />
+              <Grid item>
+                <TodayButton
+                  onClick={() => {
+                    console.log("Today button was clicked!");
+                  }}
+                >
+                  Today
+                </TodayButton>
+              </Grid>
 
-              <ImageAvatars name="DL" />
+              <Grid item>
+                <ArrowsButtons
+                  onClick={() => console.log("moved")}
+                  size="small"
+                  color="secondary"
+                />
+              </Grid>
+
+              <Grid item sx={{ flexGrow: 1 }}>
+                <DisplayDate dates={dates} data-testid={"displayDate"} />
+              </Grid>
+
+              <Grid item mx={1}>
+                <BasicPopover hours={hrsT} />
+              </Grid>
+
+              <Grid item>
+                <WeekMonthButtons
+                  onClickM={() => {
+                    console.log("Month was clicked!");
+                  }}
+                  onClickW={() => {
+                    console.log("Week was clicked!");
+                  }}
+                  box="contained"
+                  size="small"
+                />
+              </Grid>
+
+              <Grid item>
+                <ImageAvatars name="DL" />
+              </Grid>
             </>
           )}
-        </Toolbar>
-      </Container>
+        </Grid>
+      </Toolbar>
     </AppBar>
   );
 };
