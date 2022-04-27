@@ -1,14 +1,11 @@
-.displayHrs{
-    height: auto;
-    background-color: #ffffff !important;
-    display: flex;
-    color: #1976d2 !important;
-    font-size: 1.5em;
-    font-weight: bolder !important;
-    margin-left: 30px !important;
-    margin-right: 30px !important;
-    border-radius: 30rem !important;
-};
-
-
-
+.displayHrs {
+  height: auto;
+  background-color: #ffffff !important;
+  display: flex;
+  color: #1976d2 !important;
+  font-size: 1.5em;
+  font-weight: bolder !important;
+  /*margin-left: 30px !important;*/
+  /*margin-right: 30px !important;*/
+  border-radius: 30rem !important;
+}
