@@ -89,10 +89,10 @@ export default function MainDrawer() {
   return (
     <div data-testid="mainDrawer">
         <IconButton
-          aria-label="open drawer"
+          aria-labelledby="open drawer"
           onClick={toggleDrawer(!rightOpen)}
           edge="start"
-          sx={{ ...(rightOpen && { display: "none" })}}
+          sx={{...(rightOpen && { display: "none" })}}
         >
           <MenuIcon sx={{fill: "#fff"}} />
         </IconButton>
