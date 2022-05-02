@@ -1,13 +1,12 @@
 import * as React from "react";
-import moment from "moment";
-
 import { FC } from "react";
 import { useTheme, styled } from "@mui/material";
 import { themeColors } from "../../types/customs";
 
+
 export interface Dates {
-  startDate: moment.Moment;
-  endDate: moment.Moment;
+  startDate: Date;
+  endDate: Date;
 }
 export interface DatesProps extends DisplayProps {
   dates: Dates;
@@ -47,9 +46,9 @@ export const DisplayDate: FC<DatesProps> = ({ dates, color }) => {
   `;
 
   const weekHeaderDate =
-    `${startDate.format("MMM")}` === `${endDate.format("MMM")}`
-      ? `${startDate.format("MMM YYYY")}`
-      : `${startDate.format("MMM")} - ${endDate.format("MMM YYYY")}`;
+    `${startDate.toLocaleString("en-US", { month: "short" })}` === `${endDate.toLocaleString("en-US", { month: "short" })}`
+      ? `${startDate.toLocaleString("en-US", { month: "short" })} ${startDate.getFullYear()} `
+      : `${startDate.toLocaleString("en-US", { month: "short" })} - ${endDate.toLocaleString("en-US", { month: "short" })} ${endDate.getFullYear()}`;
 
   return <StyledDiv {...props}>{weekHeaderDate}</StyledDiv>;
-};
+}

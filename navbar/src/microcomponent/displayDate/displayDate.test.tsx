@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { DisplayDate } from './displayDate'
 import { dates } from "../../data/dates"
-import moment from "moment"
 
 const props={
     startDate: dates.startDate,
@@ -20,8 +19,8 @@ describe("Should render date correctly depending on props", () => {
     
 test("Should render same date correctly", () => {
 const diffDateProps={
-    startDate: moment("2022-02-03"),
-    endDate: moment("2022-02-03"),
+    startDate: new Date('Feb 2022'),
+    endDate: new Date('Feb 2022'),
 }
 
     render(<DisplayDate  dates={diffDateProps} data-testid="displayDate" />);
@@ -32,8 +31,8 @@ const diffDateProps={
 
 test("Should render different date correctly", () => {
 const diffDateProps={
-    startDate: moment("2022-02-03"),
-    endDate: moment("2022-03-23"),
+    startDate: new Date('Feb 2022'),
+    endDate: new Date('Mar 2022'),
 }
 
     render(<DisplayDate  dates={diffDateProps} data-testid="displayDate" />);
