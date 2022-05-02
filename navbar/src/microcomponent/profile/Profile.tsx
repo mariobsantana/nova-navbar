@@ -1,7 +1,7 @@
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";
-import "./profile.css";
+
 import { blue, grey } from "@mui/material/colors";
 import { styled } from "@mui/material";
 import { FC } from "react";
@@ -57,23 +57,5 @@ const MainStack = styled(Stack)(({ theme }) => ({
   borderRadius: "30rem",
 }));
 
-/*
-const MainAvatar = styled(Avatar)<StyledAvatarProps>(({ color, theme }) => ({
-  backgroundColor: grey[50],
-  color: blue[700],
-  ...(color === "primary" && {
-    backgroundColor: theme.palette.primary.main,
-    color: "#fff",
-  }),
-  ...(color === "secondary" && {
-    backgroundColor: theme.palette.secondary.main,
-    color: "#fff",
-  }),
-  ...(color === "default" && {
-    backgroundColor: grey[50],
-    color: blue[700],
-  }),
-}));
 
-*/
 

@@ -1,6 +1,6 @@
 import * as React from "react";
 import moment from "moment";
-import "./displayDate.css";
+
 import { FC } from "react";
 import { useTheme, styled } from "@mui/material";
 import { themeColors } from "../../types/customs";
@@ -37,12 +37,12 @@ export const DisplayDate: FC<DatesProps> = ({ dates, color }) => {
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
-    //text-align: center;
+
     line-height: normal;
     letter-spacing: -0.3px;
-    //place-self: center;
+
     font-family: Work-Sans, sans-serif;
-    //margin: 0px 10px 0px 10px;
+
     color: ${({ color = "default" }) => colors[color as themeColors]};
   `;
 
