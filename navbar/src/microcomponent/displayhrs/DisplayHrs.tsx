@@ -88,7 +88,7 @@ return accumulator + obj.hrs;
         open={open}
        anchorOrigin={{
         vertical: 65,
-        horizontal: 1400,
+        horizontal: 1550,
       }}
         onClose={handleClose}
       >
