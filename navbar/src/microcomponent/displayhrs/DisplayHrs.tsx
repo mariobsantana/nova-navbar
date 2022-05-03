@@ -30,7 +30,7 @@ export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
         "default": "#fff",
     };
 
-
+// Button Properties
     const StyledButton = styled("button")<DisplayProps>`
     height: auto;
     width: 4rem;
@@ -42,7 +42,7 @@ export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
     cursor: pointer;
     color: ${({ color = "default" }) => colors[color as themeColors]};
   `;
-
+    //First typo properties
   const StyledTypo = styled(Typography)<DisplayProps>`
     font-size: 1.2em;
     
@@ -50,18 +50,19 @@ export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
     color: ${({ color = "primary" }) => colors[color as themeColors]};
   `;
 
+  //Hrs typo properties
   const StyledTypoHrs = styled(Typography)<DisplayProps>`
   font-size: 1.2em;
   color: black;
 `;
-
+//Popover properties
     const StyledPop = styled(Popover)<DisplayProps>`
 
   `;
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
 
-  
+  //Hours Counter 
   const totalHours = hours.reduce((accumulator, obj) => {
 return accumulator + obj.hrs;
   }, 0);
@@ -85,6 +86,7 @@ return accumulator + obj.hrs;
        {totalHours}
       </StyledButton>
       <StyledPop {...props}
+      //Popover layout properties
         open={open}
        anchorOrigin={{
         vertical: 65,
