@@ -2,7 +2,6 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { FC } from "react";
-import './WeekMonthButton.css';
 
 type size = "small" | "medium" | "large";
 type box = "contained" | "outlined" ;

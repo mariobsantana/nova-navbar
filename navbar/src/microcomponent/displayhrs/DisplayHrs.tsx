@@ -2,7 +2,6 @@ import * as React from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-// import './displayhrs.css'
 import {FC} from "react";
 import {Hours} from "../../data/hours";
 import {useTheme, styled} from "@mui/material";
