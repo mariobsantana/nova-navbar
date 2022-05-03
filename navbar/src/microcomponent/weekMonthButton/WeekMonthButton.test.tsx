@@ -7,24 +7,6 @@ test('Render week/month button test', () => {
     expect(buttonComponent).toBeInTheDocument();
 });
 
-test('Should render wmbutton in small size', () => {
-    render(<WeekMonthButtons size="small"/>);
-    const buttonComponent = screen.getByTestId("WMButton");
-    expect(buttonComponent).toBeInTheDocument();
-});
-
-test('Should render wmbutton in medium size', () => {
-    render(<WeekMonthButtons size="medium"/>);
-    const buttonComponent = screen.getByTestId("WMButton");
-    expect(buttonComponent).toBeInTheDocument();
-});
-
-test('Should render wmbutton in large size', () => {
-    render(<WeekMonthButtons size="large"/>);
-    const buttonComponent = screen.getByTestId("WMButton");
-    expect(buttonComponent).toBeInTheDocument();
-});
-
 describe("Functionality week tests", () => {
     test("Should call onClick function", () => {
       render(<WeekMonthButtons onClickW={() => {
