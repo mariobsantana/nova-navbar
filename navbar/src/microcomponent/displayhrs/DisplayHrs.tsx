@@ -33,13 +33,13 @@ export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
     const StyledButton = styled("button")<DisplayProps>`
     height: auto;
     width: 4rem;
-    background-color: ${({ color = "primary" }) => colors[color as themeColors]};
+    padding: .3em;
     display: relative;
     font-size: 1.5em ;
-    border-radius: 80rem;
-    font-weight: bold;
+    border-radius: 5em;
     cursor: pointer;
-    color: ${({ color = "default" }) => colors[color as themeColors]};
+    border: none;
+    color: ${({ color = "primary" }) => colors[color as themeColors]};
   `;
     //First typo properties
   const StyledTypo = styled(Typography)<DisplayProps>`
@@ -87,10 +87,6 @@ return accumulator + obj.hrs;
       <StyledPop {...props}
       //Popover layout properties
         open={open}
-       anchorOrigin={{
-        vertical: 65,
-        horizontal: 1550,
-      }}
         onClose={handleClose}
       >
          {hours.map((option, index)=>(
