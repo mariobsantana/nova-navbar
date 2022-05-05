@@ -60,7 +60,9 @@ export default function MainDrawer() {
           <ListItemIcon>
             <AccessTimeIcon color="primary" />
           </ListItemIcon>
-          <ListItemText primary={<BasicPopover hours={hrsT} color="primary"/> } />
+
+          <BasicPopover hours={hrsT} color="secondary"/> 
+
         </ListItem>
         <ListItem >
           <ListItemIcon>

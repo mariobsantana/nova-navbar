@@ -29,31 +29,84 @@ export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
         "default": "#fff",
     };
 
-// Button Properties
-    const StyledButton = styled("button")<DisplayProps>`
-    height: auto;
-    width: 4rem;
-    padding: .3em;
-    display: relative;
-    font-size: 1em ;
-    border-radius: 5em;
-    cursor: pointer;
-    border: none;
-    color: ${({ color = "primary" }) => colors[color as themeColors]};
-  `;
-    //First typo properties
-  const StyledTypo = styled(Typography)<DisplayProps>`
-    font-size: 1.2em;
-    
+// // Button Properties
+//     const StyledButton = styled("button")<DisplayProps>`
+//     height: auto;
+//     width: 4rem;
+//     padding: .3em;
+//     display: relative;
+//     font-size: 1em ;
+//     border-radius: 5em;
+//     cursor: pointer;
+//     border: none;
+//     background-color: ${colors[props.color || "secondary"]};
+//     color: ${({ color = "default" }) => colors[color as themeColors]};
+//   `;
 
-    color: ${({ color = "primary" }) => colors[color as themeColors]};
-  `;
+  const StyledButton = styled("button")<DisplayProps>(({ color, theme }) => ({
+    height: "auto",
+    width: "4rem",
+    padding: ".3em",
+    display: "relative",
+    fontSize: "1em" ,
+    borderRadius: "5em",
+    cursor: "pointer",
+     border: "none",
+    ...(color === "primary" && {
+      color: theme.palette.primary.main,
+      backgroundColor: "#fff",
+    }),
+    ...(color === "secondary" && {
+      backgroundColor: theme.palette.primary.main,
+      color: "#fff",
+    }),
+    ...(color === "default" && {
+      color: theme.palette.primary.main,
+      backgroundColor: "#fff",
+    }),
+  }));
+
+
+    //First typo properties
+
+
+  const StyledTypo = styled(Typography)<DisplayProps>(({ color, theme }) => ({
+    fontSize: "1em",
+    fontWeight: "bold",
+    ...(color === "primary" && {
+      color: theme.palette.primary.main,
+      backgroundColor: "#fff",
+    }),
+    ...(color === "secondary" && {
+      backgroundColor: theme.palette.primary.main,
+      color: "#fff",
+    }),
+    ...(color === "default" && {
+      color: theme.palette.primary.main,
+      backgroundColor: "#fff",
+    }),
+  }));
 
   //Hrs typo properties
-  const StyledTypoHrs = styled(Typography)<DisplayProps>`
-  font-size: 1.2em;
-  color: black;
-`;
+
+
+const StyledTypoHrs = styled(Typography)<DisplayProps>(({ color, theme }) => ({
+  fontSize: "1em",
+
+  ...(color === "primary" && {
+    color: theme.palette.primary.main,
+    backgroundColor: "#fff",
+  }),
+  ...(color === "secondary" && {
+    backgroundColor: theme.palette.primary.main,
+    color: "#fff",
+  }),
+  ...(color === "default" && {
+    color: theme.palette.primary.main,
+    backgroundColor: "#fff",
+  }),
+}));
+
 //Popover properties
     const StyledPop = styled(Popover)<DisplayProps>`
 
@@ -78,8 +131,8 @@ return accumulator + obj.hrs;
   const id = open ? 'simple-popover' : undefined;
 
     return ( 
-      <div {...props}> 
-        <StyledButton  onClick={handleClick} >
+      <div > 
+        <StyledButton {...props}  onClick={handleClick} >
          {totalHours}
         </StyledButton>
         <StyledPop {...props}
