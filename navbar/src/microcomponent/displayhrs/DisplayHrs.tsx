@@ -35,7 +35,7 @@ export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
     width: 4rem;
     padding: .3em;
     display: relative;
-    font-size: 1.5em ;
+    font-size: 1em ;
     border-radius: 5em;
     cursor: pointer;
     border: none;
@@ -75,31 +75,35 @@ return accumulator + obj.hrs;
   };
 
   const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
-
-
-  
-  return ( 
-    <div {...props}> 
-      <StyledButton  onClick={handleClick} >
-       {totalHours}
-      </StyledButton>
-      <StyledPop {...props}
-      //Popover layout properties
+    return ( 
+      <div {...props}> 
+        <StyledButton  onClick={handleClick} >
+         {totalHours}
+        </StyledButton>
+        <StyledPop {...props}
+        //Popover layout properties
+        id={id}
         open={open}
+        anchorEl={anchorEl}
         onClose={handleClose}
-      >
-         {hours.map((option, index)=>(
-  <StyledTypo {...props} sx={{ p: 2 }} key={index}>
-         {option.name} 
-         <StyledTypoHrs>
-           {option.hrs} hrs
-           </StyledTypoHrs>
-         
-  </StyledTypo>
-      ))}
-        
-      </StyledPop>
-    </div>
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        >
+           {hours.map((option, index)=>(
+    <StyledTypo {...props} sx={{ p: 2 }} key={index}>
+           {option.name} 
+           <StyledTypoHrs>
+             {option.hrs} hrs
+             </StyledTypoHrs>
+           
+    </StyledTypo>
+        ))}
+          
+        </StyledPop>
+      </div>
   );
 }
