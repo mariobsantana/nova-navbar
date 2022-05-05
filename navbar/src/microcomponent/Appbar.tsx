@@ -62,7 +62,7 @@ const ResponsiveAppBar: FC<AppbarProps> = ({ matchesSM }) => {
               </Grid>
 
               <Grid item mx={1}>
-                <BasicPopover hours={hrsT} />
+                <BasicPopover  hours={hrsT} />
               </Grid>
 
               <Grid item>

@@ -23,27 +23,11 @@ export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
    const theme= useTheme()
 
 
-   const colors: { [key in themeColors]: string } = {
-      "primary": theme.palette.primary.main,
-        "secondary": theme.palette.secondary.main,
-        "default": "#fff",
-    };
 
-// // Button Properties
-//     const StyledButton = styled("button")<DisplayProps>`
-//     height: auto;
-//     width: 4rem;
-//     padding: .3em;
-//     display: relative;
-//     font-size: 1em ;
-//     border-radius: 5em;
-//     cursor: pointer;
-//     border: none;
-//     background-color: ${colors[props.color || "secondary"]};
-//     color: ${({ color = "default" }) => colors[color as themeColors]};
-//   `;
 
-  const StyledButton = styled("button")<DisplayProps>(({ color, theme }) => ({
+// Button Properties
+
+  const StyledButton = styled("button")<DisplayProps>(({ color ="default", theme }) => ({
     height: "auto",
     width: "4rem",
     padding: ".3em",
@@ -74,23 +58,21 @@ export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
     fontSize: "1em",
     fontWeight: "bold",
     ...(color === "primary" && {
-      color: theme.palette.primary.main,
-      backgroundColor: "#fff",
+      color: 'black',
     }),
     ...(color === "secondary" && {
       backgroundColor: theme.palette.primary.main,
       color: "#fff",
     }),
     ...(color === "default" && {
-      color: theme.palette.primary.main,
-      backgroundColor: "#fff",
+      color: 'black',
     }),
   }));
 
   //Hrs typo properties
 
 
-const StyledTypoHrs = styled(Typography)<DisplayProps>(({ color, theme }) => ({
+const StyledTypoHrs = styled(Typography)<DisplayProps>(({ color="default", theme }) => ({
   fontSize: "1em",
 
   ...(color === "primary" && {
@@ -149,7 +131,7 @@ return accumulator + obj.hrs;
            {hours.map((option, index)=>(
     <StyledTypo {...props} sx={{ p: 2 }} key={index}>
            {option.name} 
-           <StyledTypoHrs>
+           <StyledTypoHrs {...props}>
              {option.hrs} hrs
              </StyledTypoHrs>
            
