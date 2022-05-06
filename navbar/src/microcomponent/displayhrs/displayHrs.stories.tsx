@@ -1,14 +1,14 @@
-import * as React from "react";
+
 import { Story, Meta } from "@storybook/react";
-import { BasicPopover, HoursProps } from "../displayhrs/DisplayHrs";
+import { PopoverPopupState, HoursProps } from "../displayhrs/DisplayHrs";
 import { hrsT } from "../../data/hours";
 
 export default {
     title: "Header/DisplayHrs",
-    component: BasicPopover,
+    component: PopoverPopupState,
 } as Meta;
 
-const Template: Story<HoursProps> = (args) => <BasicPopover {...args} />;
+const Template: Story<HoursProps> = (args) => <PopoverPopupState {...args} />;
 
 export const DefaultHours = Template.bind({});
 DefaultHours.args = {

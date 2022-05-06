@@ -1,7 +1,7 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { BasicPopover } from "./displayhrs/DisplayHrs";
+import { PopoverPopupState } from "./displayhrs/DisplayHrs";
 import { TodayButton } from "./todayButton/todayButton";
 import { DisplayDate } from "./displayDate/displayDate";
 import MainDrawer from "./Drawer/Drawer";
@@ -62,7 +62,7 @@ const ResponsiveAppBar: FC<AppbarProps> = ({ matchesSM }) => {
               </Grid>
 
               <Grid item mx={1}>
-                <BasicPopover  hours={hrsT} />
+                <PopoverPopupState  hours={hrsT} />
               </Grid>
 
               <Grid item>

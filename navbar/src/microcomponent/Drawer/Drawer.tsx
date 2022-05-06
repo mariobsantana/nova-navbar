@@ -13,7 +13,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar, FormControlLabel, Switch } from "@mui/material";
 import {ArrowsButtons} from "../ArrowsNav/Arrows";
-import {BasicPopover} from "../displayhrs/DisplayHrs";
+import {PopoverPopupState} from "../displayhrs/DisplayHrs";
 import {hrsT} from "../../data/hours";
 import {dates} from "../../data/dates";
 import { DisplayDate } from "../displayDate/displayDate";
@@ -61,7 +61,7 @@ export default function MainDrawer() {
             <AccessTimeIcon color="primary" />
           </ListItemIcon>
 
-          <BasicPopover hours={hrsT} color="secondary"/> 
+          <PopoverPopupState hours={hrsT} color="secondary"/> 
 
         </ListItem>
         <ListItem >
