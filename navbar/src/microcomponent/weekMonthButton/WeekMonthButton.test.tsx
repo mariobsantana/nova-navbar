@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { WeekMonthButtons, WeekMonthButton } from './WeekMonthButton';
+import { WeekMonthButtons } from './WeekMonthButton';
 
 test('Render week/month button test', () => {
     render(<WeekMonthButtons />);
@@ -9,9 +9,7 @@ test('Render week/month button test', () => {
 
 describe("Functionality week tests", () => {
     test("Should call onClick function", () => {
-      render(<WeekMonthButtons onClickW={() => {
-        console.log("Week was clicked!");
-      }}/>);
+      render(<WeekMonthButtons />);
       
       console.log = jest.fn();
 
@@ -25,9 +23,7 @@ describe("Functionality week tests", () => {
 
   describe("Functionality month tests", () => {
     test("Should call onClick function", () => {
-      render(<WeekMonthButtons onClickM={() => {
-        console.log("Month was clicked!");
-      }}/>);
+      render(<WeekMonthButtons />);
       
       console.log = jest.fn();
 

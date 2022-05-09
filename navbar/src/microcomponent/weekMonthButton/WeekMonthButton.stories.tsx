@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Story, Meta } from "@storybook/react";
-import { WeekMonthButtons, WeekMonthButton } from "./WeekMonthButton";
+import { WeekMonthButton, WeekMonthButtons } from "./WeekMonthButton";
 
 
 export default {
