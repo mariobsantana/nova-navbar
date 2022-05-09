@@ -21,7 +21,7 @@ export const OptionA: FC<OptionAProps> = ({
 }) => {
   const props = {
     onClick,
-    "data-testid": "todayButton",
+    "data-testid": "OptionA",
     size,
     color: color,
   };
@@ -61,8 +61,12 @@ const StyledButton = styled("button")<StyledButtonProps>(
       border: `1px ${theme.palette.primary.main} solid`,
     }),
     ...(color === "secondary" && {
-      color: theme.palette.secondary.main,
-      border: `1px ${theme.palette.secondary.main} solid`,
+      color: "#1976d2",
+      border: "1px #1976d2 solid",
+      "&:focus": {
+        outline: "1px solid",
+        backgroundColor: "#E4E3E3",
+      },
     }),
     ...(color === "default" && {
       color: "#fff",

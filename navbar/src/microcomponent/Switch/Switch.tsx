@@ -2,23 +2,28 @@ import { FC } from "react";
 import { OptionA } from "./OptionA";
 import { OptionB } from "./OptionB";
 import ButtonGroup from '@mui/material/ButtonGroup';
-
+import { themeColors, themeSizes } from "../../types/customs";
 export interface SwitchProps {
   "data-testid"?: string;
+  size?: themeSizes;
+  color?: themeColors;
 }
 
 export const SwitchButton: FC<SwitchProps> = ({
-
+  size,
+  color,
 }) => {
   const props = {
     "data-testid": "SwitchButton",
+    size,
+    color: color,
   };
   return (
     <ButtonGroup>
-      <OptionA onClick={() => {
+      <OptionA color={color} size={size} onClick={() => {
           console.log("Week button was clicked!");}}
           >Week</OptionA>
-      <OptionB onClick={() => {
+      <OptionB color={color} size={size} onClick={() => {
           console.log("Month button was clicked!");}}
           >Month</OptionB>
     </ButtonGroup>

@@ -17,6 +17,10 @@ import {PopoverPopupState} from "../displayhrs/DisplayHrs";
 import {hrsT} from "../../data/hours";
 import {dates} from "../../data/dates";
 import { DisplayDate } from "../displayDate/displayDate";
+import { OptionA } from "../Switch/OptionA";
+import { OptionB } from "../Switch/OptionB";
+import ButtonGroup from '@mui/material/ButtonGroup';
+import { SwitchButton } from "../Switch/Switch";
 
 export default function MainDrawer() {
   const [rightOpen, setRightOpen] = React.useState(false);
@@ -74,12 +78,7 @@ export default function MainDrawer() {
       <Divider />
       <List>
         <ListItem color="primary">
-          <FormControlLabel
-            control={
-              <Switch checked={checked} onChange={() => setChecked(!checked)} />
-            }
-            label={checked ? "Monthly" : "Weekly"}
-          />
+          <SwitchButton color="secondary"/>
         </ListItem>
         <ListItem  >
           <ArrowsButtons  onClick={()=>console.log("desde el drawer")} color="primary" size="small"/>

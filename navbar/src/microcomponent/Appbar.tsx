@@ -67,7 +67,7 @@ const ResponsiveAppBar: FC<AppbarProps> = ({ matchesSM }) => {
               </Grid>
 
               <Grid item>
-                <SwitchButton />
+                <SwitchButton/>
               </Grid>
 
               <Grid item>
