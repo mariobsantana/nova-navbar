@@ -3,6 +3,10 @@ import { Story, Meta } from "@storybook/react";
 import { PopoverPopupState, HoursProps } from "../displayhrs/DisplayHrs";
 import { hrsT } from "../../data/hours";
 
+
+
+
+
 export default {
     title: "Header/DisplayHrs",
     component: PopoverPopupState,
@@ -10,14 +14,31 @@ export default {
 
 const Template: Story<HoursProps> = (args) => <PopoverPopupState {...args} />;
 
-export const DefaultHours = Template.bind({});
-DefaultHours.args = {
-    hours: hrsT
+export const displayHrs = Template.bind({});
+displayHrs.args = {
+    hours: hrsT,
+    color: "secondary" 
 };
-
-DefaultHours.parameters = {
-    backgrounds: {
-        default: "blue",
-        values: [{ name: "blue", value: "#1976d2" }],
+displayHrs.parameters = {
+    actions: {
+        handles: ['mouseover', 'click .btn'],
+      },
+    viewport: { 
+        defaultViewport: "tablet"
+    },
+    controls: {
+        expanded: true,
     },
 };
+
+
+
+
+
+
+
+
+
+
+
+
