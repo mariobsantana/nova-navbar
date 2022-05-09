@@ -21,14 +21,12 @@ export const OptionA: FC<OptionAProps> = ({
 }) => {
   const props = {
     onClick,
-    "data-testid": "OptionA",
+    "data-testid": "optionA",
     size,
     color: color,
   };
   return (
-    <div {...props}>
       <StyledButton {...props}>{children}</StyledButton>
-    </div>
   );
 };
 
