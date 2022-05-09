@@ -1,9 +1,10 @@
 import * as React from "react";
-import { render, screen, fireEvent, createEvent } from "@testing-library/react";
-import MainDrawer from "./Drawer";
+import { render, screen, fireEvent, createEvent, getByTestId } from "@testing-library/react";
+import mainDrawer from "./Drawer";
 import Appbar from "../Appbar";
 import { IconButton } from "@mui/material";
 import Drawer from "./Drawer";
+import MainDrawer from "./Drawer";
 
 describe("Drawer button tests", () => {
     describe("Rendering tests", () => {
@@ -41,4 +42,46 @@ describe("Drawer button tests", () => {
           
           });
     })
-});
+
+    describe("Fire event when a key is pressed", () => {
+ /*       test("toggle changes correctly", () => {
+            const doSomething = jest.fn();
+            const doOtherThing = jest.fn();
+            const { container } = render(
+            <MainDrawer x ={doSomething} y={doOtherThing} />
+            );
+            //const toggle = getByTestId(container, "toggle");
+            //fireEvent.change(toggle, { target: { value: "foo" } });
+            //expect(doOtherThing.mock.calls.length).toBe(1);
+        });
+        test("input key press correctly", () => {
+            const doSomething = jest.fn();
+            const doOtherThing = jest.fn();
+            const { container } = render(
+            <MainDrawer x={doSomething} y={doOtherThing} />
+            );
+            const toggle = getByTestId(container, "toggle");
+            fireEvent.keyPress(toggle, { key: "Enter", code: 13 });
+            expect(doSomething.mock.calls.length).toBe(null);
+        })
+//        const handleKeydown = jest.fn()
+ //       fireEvent.keyDown( setRightOpen, {key: 'Enter', code: 'Enter', charCode: 13})
+
+   //     fireEvent.keyDown(domNode, {key: 'A', code: 'KeyA'})
+    })*/
+    test("Should render Drawer if breakpoint is true", () => {
+        const doSomething = jest.fn();
+        render(<Appbar matchesSM={true}/>);
+        const drawerComponent = screen.getByTestId("mainDrawer");
+        expect(drawerComponent).toBeInTheDocument();
+        //const toggle = getByTestId(container, "toggle");
+        
+        //fireEvent.click(drawerComponent);
+        const buttonComponent = screen.getByRole("button");
+        fireEvent.keyDown(buttonComponent, { key: "Tab", code: 9 });
+        expect(buttonComponent).toBeInTheDocument();
+
+
+    });
+})
+})
