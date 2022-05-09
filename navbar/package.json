@@ -14,6 +14,7 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.8",
     "@types/react-dom": "^18.0.3",
+    "material-ui-popup-state": "^2.0.1",
     "moment": "^2.29.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -26,7 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:coverage": "CI=true react-scripts test --env=jsdom --coverage --collectCoverageFrom=src/**/*.{js,ts,tsx,jsx} --collectCoverageFrom=!src/**/*.stories.tsx",
+    "test:coverage": "react-scripts test a --coverage --collectCoverageFrom=src/**/*.{js,ts,tsx,jsx} --collectCoverageFrom=!src/**/*.stories.tsx",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
