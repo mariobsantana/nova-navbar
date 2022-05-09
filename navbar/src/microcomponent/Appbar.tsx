@@ -12,7 +12,6 @@ import { dates } from "../data/dates";
 import { ImageAvatars } from "./profile/Profile";
 import { MainLogo } from "./logo/logo";
 import { Grid } from "@mui/material";
-import ButtonGroup from '@mui/material/ButtonGroup';
 import { SwitchButton } from "./Switch/Switch";
 
 export interface AppbarProps {

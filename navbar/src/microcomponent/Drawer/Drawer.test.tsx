@@ -69,19 +69,46 @@ describe("Drawer button tests", () => {
 
    //     fireEvent.keyDown(domNode, {key: 'A', code: 'KeyA'})
     })*/
-    test("Should render Drawer if breakpoint is true", () => {
+    test("Should call today button function", () => {
         const doSomething = jest.fn();
         render(<Appbar matchesSM={true}/>);
         const drawerComponent = screen.getByTestId("mainDrawer");
         expect(drawerComponent).toBeInTheDocument();
         //const toggle = getByTestId(container, "toggle");
         
-        //fireEvent.click(drawerComponent);
+        
         const buttonComponent = screen.getByRole("button");
-        fireEvent.keyDown(buttonComponent, { key: "Tab", code: 9 });
+        fireEvent.click(buttonComponent);
+       // fireEvent.keyDown(buttonComponent, { key: "Tab", code: 9 });
         expect(buttonComponent).toBeInTheDocument();
+        console.log = jest.fn();
+          const todayComponent = screen.getByText(/Today/);
+          expect(todayComponent).toBeInTheDocument()
+          fireEvent.click(todayComponent);
+          const consoleSpy = jest.spyOn(console, 'log');
+          expect(consoleSpy).toHaveBeenCalledWith("Today button was clicked!");
 
+    })
 
-    });
+    test("Should call arrow button function", () => {
+        const doSomething = jest.fn();
+        render(<Appbar matchesSM={true}/>);
+        const drawerComponent = screen.getByTestId("mainDrawer");
+        expect(drawerComponent).toBeInTheDocument();
+        //const toggle = getByTestId(container, "toggle");
+        
+        
+        const buttonComponent = screen.getByRole("button");
+        fireEvent.click(buttonComponent);
+       // fireEvent.keyDown(buttonComponent, { key: "Tab", code: 9 });
+        expect(buttonComponent).toBeInTheDocument();
+        console.log = jest.fn();
+        const arrowComponent = screen.getByTestId("ArrowsLeft");
+          expect(arrowComponent).toBeInTheDocument()
+          fireEvent.click(arrowComponent);
+          const consoleSpy = jest.spyOn(console, 'log');
+          expect(consoleSpy).toHaveBeenCalledWith("desde el drawer");
+
+    })
 })
 })
