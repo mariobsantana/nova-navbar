@@ -1,6 +1,6 @@
 
 import { render, screen, fireEvent} from '@testing-library/react';
-import {BasicPopover} from './DisplayHrs';
+import {PopoverPopupState} from './DisplayHrs';
 
 test('Render My Counter', () => {
    const hrsT = [
@@ -8,7 +8,7 @@ test('Render My Counter', () => {
      { hrs: 25, name: ' Delivery' },
     { hrs: 30, name: ' Talent Management'},
    ];
-  render(<BasicPopover hours={hrsT} />);
+  render(<PopoverPopupState hours={hrsT} />);
 
       const displayComponent = screen.getByText("100");
       expect(displayComponent).toBeInTheDocument();
@@ -22,7 +22,7 @@ test("Should render different hour correctly", () => {
     { hrs: 30, name: ' Talent Management'},
    ];
   
-      render(<BasicPopover  hours={hrsT}  />);
+      render(<PopoverPopupState  hours={hrsT}  />);
       const displayComponent = screen.getByText("100");
       expect(displayComponent).toBeInTheDocument();
       
@@ -35,7 +35,7 @@ test("Should render correct amount of data", () => {
     { hrs: 50, name: 'Talent Management'},
    ];
   
-      render(<BasicPopover  hours={hrsT}  />);
+      render(<PopoverPopupState  hours={hrsT}  />);
       const displayComponent = screen.getByText("90");
       fireEvent.click(displayComponent)
 

@@ -1,109 +1,159 @@
-import * as React from 'react';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import {FC} from "react";
-import {Hours} from "../../data/hours";
-import {useTheme, styled} from "@mui/material";
-import { themeColors } from '../../types/customs';
+import * as React from "react";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import { FC } from "react";
+import { Hours } from "../../data/hours";
+import { useTheme, styled } from "@mui/material";
+import { themeColors } from "../../types/customs";
 
+import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
 
 export interface HoursProps extends DisplayProps {
-hours: Hours[];
+  hours: Hours[];
 }
-  interface DisplayProps{
-  color?: themeColors
-  }
+interface DisplayProps {
+  color?: themeColors;
+}
 
-export const BasicPopover:FC<HoursProps> = ({hours, color}) => {
-
+export const PopoverPopupState: FC<HoursProps> = ({ hours, color }) => {
   const props = {
-  color,
+    color,
   };
-   const theme= useTheme()
+  const theme = useTheme();
 
+  // Button Properties
 
-   const colors: { [key in themeColors]: string } = {
-      "primary": theme.palette.primary.main,
-        "secondary": theme.palette.secondary.main,
-        "default": "#fff",
-    };
+  const StyledButton = styled("button")<DisplayProps>(
+    ({ color = "default", theme }) => ({
+      height: "auto",
+      width: "4rem",
+      padding: ".3em",
+      display: "relative",
+      fontSize: "1em",
+      borderRadius: "5em",
+      cursor: "pointer",
+      border: "none",
+      ...(color === "primary" && {
+        color: theme.palette.primary.main,
+        backgroundColor: "#fff",
+      }),
+      ...(color === "secondary" && {
+        backgroundColor: theme.palette.primary.main,
+        color: "#fff",
+      }),
+      ...(color === "default" && {
+        color: theme.palette.primary.main,
+        backgroundColor: "#fff",
+      }),
+    })
+  );
 
-// Button Properties
-    const StyledButton = styled("button")<DisplayProps>`
-    height: auto;
-    width: 4rem;
-    padding: .3em;
-    display: relative;
-    font-size: 1em ;
-    border-radius: 5em;
-    cursor: pointer;
-    border: none;
-    color: ${({ color = "primary" }) => colors[color as themeColors]};
-  `;
-    //First typo properties
-  const StyledTypo = styled(Typography)<DisplayProps>`
-    font-size: 1.2em;
-    
+  //First typo properties
 
-    color: ${({ color = "primary" }) => colors[color as themeColors]};
-  `;
+  const StyledTypo = styled(Typography)<DisplayProps>(({ color, theme }) => ({
+    fontSize: "1em",
+    fontWeight: "bold",
+    ...(color === "primary" && {
+      color: "black",
+    }),
+    ...(color === "secondary" && {
+      backgroundColor: theme.palette.primary.main,
+      color: "#fff",
+    }),
+    ...(color === "default" && {
+      color: "black",
+    }),
+  }));
 
   //Hrs typo properties
-  const StyledTypoHrs = styled(Typography)<DisplayProps>`
-  font-size: 1.2em;
-  color: black;
-`;
-//Popover properties
-    const StyledPop = styled(Popover)<DisplayProps>`
 
-  `;
+  const StyledTypoHrs = styled(Typography)<DisplayProps>(
+    ({ color = "default", theme }) => ({
+      fontSize: "1em",
 
-  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
+      ...(color === "primary" && {
+        color: theme.palette.primary.main,
+        backgroundColor: "#fff",
+      }),
+      ...(color === "secondary" && {
+        backgroundColor: theme.palette.primary.main,
+        color: "#fff",
+      }),
+      ...(color === "default" && {
+        color: theme.palette.primary.main,
+        backgroundColor: "#fff",
+      }),
+    })
+  );
 
-  //Hours Counter 
+  //Popover properties
+  const StyledPop = styled(Popover)<DisplayProps>``;
+
+  //Hours Counter
   const totalHours = hours.reduce((accumulator, obj) => {
-return accumulator + obj.hrs;
+    return accumulator + obj.hrs;
   }, 0);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+  //Popover content
+  // const [anchorEl, setAnchorEl] =
+  //   React.useState<HTMLButtonElement | null>(null);
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  //   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //     setAnchorEl(event.currentTarget);
+  //   };
 
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
 
-    return ( 
-      <div {...props}> 
-        <StyledButton  onClick={handleClick} >
-         {totalHours}
-        </StyledButton>
-        <StyledPop {...props}
-        //Popover layout properties
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        >
-           {hours.map((option, index)=>(
-    <StyledTypo {...props} sx={{ p: 2 }} key={index}>
-           {option.name} 
-           <StyledTypoHrs>
-             {option.hrs} hrs
-             </StyledTypoHrs>
+  // const open = Boolean(anchorEl);
+  // const id = open ? "simple-popover" : undefined;
+
+  return (
+    <PopupState variant="popover" popupId="demo-popup-popover">
+      {(popupState) => (
+        <div>
+          <StyledButton
+            {...props}
            
-    </StyledTypo>
-        ))}
-          
-        </StyledPop>
-      </div>
+            {...bindTrigger(popupState)}
+          >
+            {totalHours}
+          </StyledButton>
+          <StyledPop
+            {...props}
+            {...bindPopover(popupState)}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "center",
+            }}
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "center",
+            }}
+            //Popover layout properties
+            // id={id}
+            // open={open}
+            // anchorEl={anchorEl}
+            // onClose={handleClose}
+            // anchorReference="anchorEl"
+            // anchorPosition={{ top: 72, left: 1740,   }}
+            // anchorOrigin={{ vertical: "top", horizontal: 1700 }}
+            // transformOrigin={{ vertical: "top", horizontal: "right" }}
+            transitionDuration={400}
+            marginThreshold={75} 
+            elevation={5}
+          >
+            {hours.map((option, index) => (
+              <StyledTypo {...props} sx={{ p: 2 }} key={index}>
+                {option.name}
+                <StyledTypoHrs {...props}>{option.hrs} hrs</StyledTypoHrs>
+              </StyledTypo>
+            ))}
+          </StyledPop>
+        </div>
+      )}
+    </PopupState>
   );
-}
+};
