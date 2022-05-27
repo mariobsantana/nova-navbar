@@ -1,10 +1,8 @@
-import * as React from "react";
+
 import { render, screen, fireEvent, createEvent, getByTestId } from "@testing-library/react";
-import mainDrawer from "./Drawer";
 import Appbar from "../Appbar";
 import { IconButton } from "@mui/material";
 import Drawer from "./Drawer";
-import MainDrawer from "./Drawer";
 
 describe("Drawer button tests", () => {
     describe("Rendering tests", () => {
